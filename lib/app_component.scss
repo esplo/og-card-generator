@@ -1,0 +1,13 @@
+.fill-width {
+  align-items: baseline;
+  display: flex;
+  width: 100%;
+
+  material-input {
+    flex-grow: 1;
+  }
+}
+
+.submit-text {
+  margin-left: 12px;
+}

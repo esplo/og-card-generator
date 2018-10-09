@@ -1,0 +1,81 @@
+<h1>OG Card Generator</h1>
+
+<div *ngIf="loading">
+    <div>
+        <material-spinner></material-spinner>
+        <span class="submit-text">Submitting...</span>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <section>
+        <form #f="ngForm">
+            <div class="fill-width">
+                <material-input
+                        floatingLabel
+                        label="Type an URL here"
+                        type="url"
+                        [(ngModel)]="model.url"
+                        required
+                        ngControl="url"
+                ></material-input>
+            </div>
+
+            <div>
+                <material-input
+                        floatingLabel
+                        label="description"
+                        type="number"
+                        checkPositive
+                        [(ngModel)]="model.descLength"
+                        trailingText="chars"
+                        [rightAlign]="true"
+                        required
+                        ngControl="descLength"
+                ></material-input>
+            </div>
+
+            <div>
+                <material-button
+                        raised (trigger)="onEnter()"
+                        [disabled]="!f.valid"
+                >
+                    submit
+                </material-button>
+            </div>
+        </form>
+        <div *ngIf="errors != ''">errors: {{errors}}</div>
+    </section>
+
+    <h2>Preview</h2>
+    <section>
+        <material-input
+                floatingLabel
+                type="number"
+                checkPositive
+                [(ngModel)]="previewWidth"
+                leadingText="width: "
+                trailingText="px"
+                [rightAlign]="true"
+        ></material-input>
+        <material-input
+                floatingLabel
+                type="number"
+                checkPositive
+                [(ngModel)]="previewHeight"
+                leadingText="height: "
+                trailingText="px"
+                [rightAlign]="true"
+        ></material-input>
+        <preview [setHtml]="result" [width]="previewWidth" [height]="previewHeight"></preview>
+    </section>
+
+    <h2>HTML</h2>
+    <section>
+        <p>{{result}}</p>
+    </section>
+
+    <h2>CSS</h2>
+    <section>
+        <p>{{ogCss}}</p>
+    </section>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // WARNING: DO NOT set the <base href> like this in production!
+        // Details: https://webdev.dartlang.org/angular/guide/router
+        (function () {
+            var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
+            document.write('<base href="' + (m ? m[0] : '/') + '" />');
+        }());
+    </script>
+
+    <title>OG Card Generator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ogcard.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <meta name="author" content="esplo">
+    <meta name="keywords" content="open graph,card,link,blog,generator,creator">
+    <meta name="description" content="A web app that generates a clickable card with OG information">
+    <meta property="og:description" content="A web app that generates a clickable card with OG information">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OG Card Generator">
+    <meta property="og:url" content="https://og-card.netlify.com/">
+    <meta property="og:site_name" content="OG Card Generator">
+    <meta property="og:image" content="https://og-card.netlify.com//favicon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OG Card Generator">
+    <meta name="twitter:description" content="A web app that generates a clickable card with OG information">
+    <meta name="twitter:site" content="@esplo77">
+    <meta name="twitter:creator" content="@esplo77">
+
+    <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+<og-card-generator>Loading OG Card Generator...</og-card-generator>
+</body>
+
+</html>
